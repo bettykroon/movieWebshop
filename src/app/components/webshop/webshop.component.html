@@ -9,7 +9,7 @@
         <img src="{{ s.imageUrl }}" alt="">
         <p> {{ s.description }} </p>
         <b> Pris: {{ s.price }}kr </b><br>
-        <button (click)="totalPrice(s.price)" (click)="addToCart(s)">Lägg i varukorg</button>
+        <button *ngIf="!productsInCart.includes(s)" (click)="[totalPrice(s.price), addToCart(s)]">Lägg i varukorg</button>
     </div>
 
     <div *ngFor="let c of categories; let i = index">
@@ -28,42 +28,41 @@
                         <img src="{{ w.imageUrl }}" alt="">
                         <p> {{ w.description }} </p>
                         <b> Pris: {{ w.price }}kr </b><br>
-                        <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+                        <button *ngIf="!productsInCart.includes(w)" (click)="[totalPrice(w.price), addToCart(w)]">Lägg i varukorg</button>
                     </div>
                     <div class="movie" *ngIf="i == 1 && thrillerClicked">
                         <h2>{{ w.name }} </h2>
                         <img src="{{ w.imageUrl }}" alt="">
                         <p> {{ w.description }} </p>
                         <b> Pris: {{ w.price }}kr </b><br>
-                        <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+                        <button *ngIf="!productsInCart.includes(w)" (click)="[totalPrice(w.price), addToCart(w)]">Lägg i varukorg</button>
                     </div>
                     <div class="movie" *ngIf="i == 2 && comedyClicked">
                         <h2>{{ w.name }} </h2>   
                         <img src="{{ w.imageUrl }}" alt="">
                         <p> {{ w.description }} </p>
                         <b> Pris: {{ w.price }}kr </b><br>
-                        <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+                        <button *ngIf="!productsInCart.includes(w)" (click)="[totalPrice(w.price), addToCart(w)]">Lägg i varukorg</button>
                     </div>
                     <div class="movie" *ngIf="i == 3 && scifiClicked">
                         <h2>{{ w.name }} </h2>
                         <img src="{{ w.imageUrl }}" alt="">
                         <p> {{ w.description }} </p>
                         <b> Pris: {{ w.price }}kr </b><br>
-                        <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+                        <button *ngIf="!productsInCart.includes(w)" (click)="[totalPrice(w.price), addToCart(w)]">Lägg i varukorg</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- OM DU VILL STRUNTA I KATEGORIER ANVÄND ENDAST DETTA!!! -->
     <div *ngIf="noCategory">
         <div class="movie" *ngFor="let w of webshop; let i = index">
             <h2>{{ w.name }} </h2>
             <img src="{{ w.imageUrl }}" alt="">
             <p> {{ w.description }} </p>
             <b> Pris: {{ w.price }}kr </b><br>
-            <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+            <button *ngIf="!productsInCart.includes(w)" (click)="[totalPrice(w.price), addToCart(w)]">Lägg i varukorg</button>
         </div>
     </div>
 </main>

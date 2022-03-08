@@ -4,7 +4,7 @@
         <div class="movie" *ngFor="let m of moviesInCart; let i = index">
             <h3> {{ m.name }} </h3>
             <img src="{{ m.imageUrl }}" alt="">
-            <button (click)="removePrice(m.price)" (click)="removeFromCart(i)">Ta bort</button>
+            <button (click)="[removePrice(m.price), removeFromCart(i)]">Ta bort</button>
         </div>
         <p *ngIf="moviesInCart.length"><b>Totalt:</b> {{ totalprice }}kr</p>
         <p *ngIf="!moviesInCart.length">Din varukorg är tom..</p>

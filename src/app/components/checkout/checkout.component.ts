@@ -1,10 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IMovies } from 'src/app/models/IMovies';
 import { IOrder } from 'src/app/models/IOrder';
 import { AdminService } from 'src/app/services/admin/admin.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-checkout',
@@ -27,7 +25,7 @@ export class CheckoutComponent implements OnInit {
     orderRows: this.fb.array([])
   })
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private service: AdminService) { }
+  constructor(private fb: FormBuilder, private service: AdminService) { }
 
   ngOnInit(): void {
     let moviesInLs = localStorage.getItem('products') || '[]';
@@ -69,13 +67,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   order(order: IOrder[]){
-    console.log("order",order);
     localStorage.removeItem('totalPrice');
     localStorage.removeItem('products');
-    this.http
-      .post(environment.baseUrl + 'orders', order)
-      .subscribe((status) => {
-        console.log("status", status);
-      });
+    
+    this.service.order(order);
   }
 }
