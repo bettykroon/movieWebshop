@@ -1,0 +1,38 @@
+main {
+    .search {
+        text-align: center;
+        margin: auto;
+        input {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 10%;
+        }
+    }
+
+    .category {        
+        button {
+            float: left;
+            width: 25%;
+        }
+    }
+
+    .movie {
+        h2 {
+            font-size: 2rem;
+            padding: 10px;
+            text-decoration: underline;
+        }
+        p {
+            max-width: 60%;
+            margin: auto;
+            padding: 10px;
+        }
+    }
+}

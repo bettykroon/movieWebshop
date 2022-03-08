@@ -1,1 +1,69 @@
-<p>webshop works!</p>
+<main>
+    <div class="search">
+        <input type="text" #movie (keyup)="chosenMovie(movie.value)" placeholder="Sök film">
+        <button (click)="searchMovie()"><fa-icon [icon]="searchIcon"></fa-icon></button>
+    </div>
+
+    <div class="movie" *ngFor="let s of search; let i = index;">
+        <h2>{{ s.name }} </h2>
+        <img src="{{ s.imageUrl }}" alt="">
+        <p> {{ s.description }} </p>
+        <b> Pris: {{ s.price }}kr </b><br>
+        <button (click)="totalPrice(s.price)" (click)="addToCart(s)">Lägg i varukorg</button>
+    </div>
+
+    <div *ngFor="let c of categories; let i = index">
+        <div class="category">
+            <button (click)="showMovies(i)">{{ c.name }}</button>
+        </div>
+    </div>
+    <br>
+    
+    <div *ngFor="let c of categories; let i = index">
+        <div *ngFor="let w of webshop">
+            <div *ngFor="let u of w.productCategory">
+                <div *ngIf="c.id == u.categoryId">
+                    <div class="movie" *ngIf="i == 0 && actionClicked">
+                        <h2>{{ w.name }} </h2>
+                        <img src="{{ w.imageUrl }}" alt="">
+                        <p> {{ w.description }} </p>
+                        <b> Pris: {{ w.price }}kr </b><br>
+                        <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+                    </div>
+                    <div class="movie" *ngIf="i == 1 && thrillerClicked">
+                        <h2>{{ w.name }} </h2>
+                        <img src="{{ w.imageUrl }}" alt="">
+                        <p> {{ w.description }} </p>
+                        <b> Pris: {{ w.price }}kr </b><br>
+                        <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+                    </div>
+                    <div class="movie" *ngIf="i == 2 && comedyClicked">
+                        <h2>{{ w.name }} </h2>   
+                        <img src="{{ w.imageUrl }}" alt="">
+                        <p> {{ w.description }} </p>
+                        <b> Pris: {{ w.price }}kr </b><br>
+                        <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+                    </div>
+                    <div class="movie" *ngIf="i == 3 && scifiClicked">
+                        <h2>{{ w.name }} </h2>
+                        <img src="{{ w.imageUrl }}" alt="">
+                        <p> {{ w.description }} </p>
+                        <b> Pris: {{ w.price }}kr </b><br>
+                        <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OM DU VILL STRUNTA I KATEGORIER ANVÄND ENDAST DETTA!!! -->
+    <div *ngIf="noCategory">
+        <div class="movie" *ngFor="let w of webshop; let i = index">
+            <h2>{{ w.name }} </h2>
+            <img src="{{ w.imageUrl }}" alt="">
+            <p> {{ w.description }} </p>
+            <b> Pris: {{ w.price }}kr </b><br>
+            <button (click)="totalPrice(w.price)" (click)="addToCart(w)">Lägg i varukorg</button>
+        </div>
+    </div>
+</main>
