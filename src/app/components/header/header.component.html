@@ -1,1 +1,13 @@
-<p>header works!</p>
+<header>
+    <div class="icon">
+        <a routerLink="/admin" routerLinkActive="active"><fa-icon [icon]="faUser"></fa-icon></a>
+    </div>
+    <h1><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">.NETflix</a></h1>
+
+    <nav>
+        <ul>
+            <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Filmer</a></li>
+            <li><a routerLink="/varukorg" routerLinkActive="active">Varukorg</a></li>
+        </ul>
+    </nav>
+</header>
