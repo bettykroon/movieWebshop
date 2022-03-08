@@ -7,7 +7,7 @@
                 <p> <b>Produkt:</b> {{ id.productId }} </p> 
                 <p> <b>Antal:</b> {{ id.amount }}  </p><br>
             </div>
-            <p><b>Gjordes:</b>  {{ a.created | date}}</p><br>
+            <p><b>Gjordes:</b>  {{ a.created | date: 'dd/MM/yyyy HH:mm'}}</p><br>
             <button (click)="deleteOrder(a.id)">Radera</button>
         </div>
     </div>
