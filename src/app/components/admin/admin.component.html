@@ -1,1 +1,14 @@
-<p>admin works!</p>
+<main>
+    <div class="cart">
+        <h2>Ordrar</h2>
+        <div class="movie" *ngFor="let a of admin.reverse(); let i = index">
+            <h3 id="{{a.id}}"> {{ a.createdBy }} </h3><br>
+            <div *ngFor="let id of a.orderRows">
+                <p> <b>Produkt:</b> {{ id.productId }} </p> 
+                <p> <b>Antal:</b> {{ id.amount }}  </p><br>
+            </div>
+            <p><b>Gjordes:</b>  {{ a.created | date}}</p><br>
+            <button (click)="deleteOrder(a.id)">Radera</button>
+        </div>
+    </div>
+</main>
