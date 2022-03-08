@@ -1,0 +1,51 @@
+main {
+    .cart {
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .varor {
+            margin: auto;
+            width: 40%;
+            ul {
+                padding: 2px;
+                list-style-type: none;
+                li {
+                    background-color: #ead4d2;
+                    color: #4b1b1b;
+                    padding: 5px;
+                }
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        .hr {
+            margin: auto;
+            width: 60%;
+            hr {
+                border: 1px solid #4b1b1b;
+                border-radius: 5px;
+                margin: 20px;
+            }
+        }
+
+        input {
+            width: 40%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .validator {
+            color: #d99255;
+        }
+    }
+}

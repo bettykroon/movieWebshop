@@ -1,1 +1,51 @@
-<p>checkout works!</p>
+<main>
+    <div class="cart">
+        <h2>Kassa</h2>
+
+        <h3>Dina varor:</h3>
+        <div class="varor" *ngFor="let m of moviesInCart">
+            <ul>
+                <li><h4> {{ m.name }}, produkt id: {{ m.id }} </h4></li>
+            </ul>
+        </div>
+        <p><b>Totalt:</b> {{ totalprice }}kr </p>
+
+        <div class="hr">
+            <hr>
+        </div>
+
+        <h3>Personuppgifter</h3>
+        <form [formGroup]="orderForm">
+                <!--<div formArrayName="orderRows" *ngFor="let o of orderRows.controls">
+                        <div class="varor" *ngFor="let m of moviesInCart;let i = index">
+                            <div [formGroupName]="i">
+                            <h4> {{ m.name }}, {{ m.id }} </h4>
+                            <label for="amount">Antal </label>
+                            <input type="number" formControlName="amount">
+                        </div>
+                    </div>
+                </div>-->
+
+
+            <div formArrayName="orderRows" *ngFor="let o of orderRows.controls; let i = index">
+                <div [formGroupName]="i">
+                    <label for="productId">Produkt id: </label>
+                    <input type="number" formControlName="productId"><br>
+                    <label for="amount">Antal: </label>
+                    <input type="number" formControlName="amount">
+                    
+                </div>
+            </div>
+            
+            <input type="text" formControlName="createdBy" placeholder="Namn"><br>
+            <div class="validator" *ngIf="orderForm.get('createdBy')?.invalid 
+            && (orderForm.get('createdBy')?.touched || orderForm.get('createdBy')?.dirty)">
+                <p>Detta fält är obligatoriskt</p>
+            </div>
+
+            <button *ngIf="orderForm.valid" type="submit" (click)="order(orderForm.value)" routerLink="/tack" routerLinkActive="active">Lägg order</button>
+
+            {{ orderForm.value | json }}
+        </form>
+    </div>
+</main>
