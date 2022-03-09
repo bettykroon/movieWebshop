@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IOrder } from 'src/app/models/IOrder';
 
 import { CheckoutComponent } from './checkout.component';
 

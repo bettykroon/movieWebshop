@@ -45,7 +45,7 @@ export class CheckoutComponent implements OnInit {
     
     this.moviesInCart.forEach(()=>{
       this.rows();
-    })
+    });
   }
 
   get orderRows(){

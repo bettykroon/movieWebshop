@@ -22,4 +22,14 @@ describe('CartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should remove price', () => {
+    component.totalprice = 199;
+
+    expect(component.totalprice).toBe(199);
+
+    component.removePrice(99);
+
+    expect(component.totalprice).toBe(100);
+  })
 });
