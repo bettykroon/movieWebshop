@@ -14,26 +14,18 @@
             <hr>
         </div>
 
-        <h3>Personuppgifter</h3>
+        <h3>Beställningsuppgifter</h3>
         <form [formGroup]="orderForm">
-                <!--<div formArrayName="orderRows" *ngFor="let o of orderRows.controls">
-                        <div class="varor" *ngFor="let m of moviesInCart;let i = index">
-                            <div [formGroupName]="i">
-                            <h4> {{ m.name }}, {{ m.id }} </h4>
-                            <label for="amount">Antal </label>
-                            <input type="number" formControlName="amount">
-                        </div>
-                    </div>
-                </div>-->
-
-
             <div formArrayName="orderRows" *ngFor="let o of orderRows.controls; let i = index">
                 <div [formGroupName]="i">
                     <label for="productId">Produkt id: </label>
-                    <input type="number" formControlName="productId"><br>
-                    <label for="amount">Antal: </label>
+                    <input type="number" formControlName="productId">
+                    <div class="validator" *ngIf="orderForm.get('orderRows')?.invalid 
+                    && (orderForm.get('orderRows')?.touched || orderForm.get('orderRows')?.dirty)">
+                        <p>Måste innehålla ett tal mellan 76-107 eller 574-577..</p>
+                    </div>
+                    <label for="amount">  Antal: </label>
                     <input type="number" formControlName="amount">
-                    
                 </div>
             </div>
             
@@ -44,7 +36,6 @@
             </div>
 
             <button *ngIf="orderForm.valid" type="submit" (click)="order(orderForm.value)" routerLink="/tack" routerLinkActive="active">Lägg order</button>
-
             <!--{{ orderForm.value | json }}-->
         </form>
     </div>

@@ -2,6 +2,9 @@
     <div class="search">
         <input type="text" #movie (keyup)="chosenMovie(movie.value)" placeholder="Sök film">
         <button (click)="searchMovie()"><fa-icon [icon]="searchIcon"></fa-icon></button>
+        <div *ngIf="!search.length && searchBtnClicked">
+            <p>Hittade ingen film med det namnet, försök igen.. </p>
+        </div>
     </div>
 
     <div class="movie" *ngFor="let s of search; let i = index;">

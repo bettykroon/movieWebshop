@@ -24,6 +24,8 @@ export class WebshopComponent implements OnInit {
 
   search: IMovies[] = [];
 
+  searchBtnClicked: boolean = false;
+
   movie: string = "";
 
   actionClicked: boolean = false;
@@ -105,6 +107,7 @@ export class WebshopComponent implements OnInit {
   }
 
   searchMovie(){
+    this.searchBtnClicked = true;
     this.sservice.search$.subscribe((data) => {
       this.search = data;
     });

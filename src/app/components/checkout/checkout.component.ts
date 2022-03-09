@@ -58,7 +58,7 @@ export class CheckoutComponent implements OnInit {
       id: [0],
       orderId: [0],
       product: [''],
-      productId: [0]
+      productId: [0, [Validators.pattern('^([7-7][6-9]|[8-9][0-9]|10[0-7]|57[4-7])$'), Validators.required]]
     })
   }
 
