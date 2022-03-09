@@ -16,4 +16,8 @@ describe('CategoriesService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should have getData function', () => {
+    expect(service.getData).toBeTruthy();
+  });
 });

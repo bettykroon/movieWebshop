@@ -16,4 +16,16 @@ describe('AdminService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should have getOrders function', () => {
+    expect(service.getOrders).toBeTruthy();
+  });
+
+  it('should have deleteOrder function', () => {
+    expect(service.deleteOrder).toBeTruthy();
+  });
+
+  it('should have order function', () => {
+    expect(service.order).toBeTruthy();
+  });
 });
